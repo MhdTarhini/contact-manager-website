@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/add/:id" element={<ContactForm />} />
-        <Route path="/map" element={<ContactsMap />} />
+        <Route path="/map/:id" element={<ContactsMap />} />
       </Routes>
     </BrowserRouter>
   );

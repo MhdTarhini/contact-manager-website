@@ -5,15 +5,10 @@ import { useParams } from "react-router-dom";
 
 function ContactForm() {
   const [data, setData] = useState([]);
+  const [contactData, setContactData] = useState([]);
   const [isSumbit, setIsSubmit] = useState("");
   const param = useParams();
-  console.log(param);
   let path = "";
-  if (param.id == "add") {
-    path = "add";
-  } else {
-    path = `${param.id}`;
-  }
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -25,11 +20,29 @@ function ContactForm() {
         `http://127.0.0.1:8000/api/manage_contact/${path}`,
         data
       );
-      console.log(response);
     } catch (error) {
       console.error(error);
     }
   };
+  const getcontactdata = async () => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/get_contact/${path}`,
+        data
+      );
+      setContactData(response.data.contact);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  if (param.id === "add") {
+    path = "add";
+  } else {
+    path = `${param.id}`;
+    if (contactData.length == 0) {
+      getcontactdata();
+    }
+  }
   useEffect(() => {
     addContact();
   }, [isSumbit]);
@@ -64,20 +77,20 @@ function ContactForm() {
           <input type="text" name="city" id="city" onChange={handleChange} />
         </div>
         <div className="input">
-          <label htmlFor="latitud">latitude</label>
+          <label htmlFor="latitude">latitude</label>
           <input
             type="text"
             name="latitude"
-            id="latitud"
+            id="latitude"
             onChange={handleChange}
           />
         </div>
         <div className="input">
-          <label htmlFor="longitud">longitude</label>
+          <label htmlFor="longitude">longitude</label>
           <input
             type="text"
             name="longitude"
-            id="longitud"
+            id="longitude"
             onChange={handleChange}
           />
         </div>

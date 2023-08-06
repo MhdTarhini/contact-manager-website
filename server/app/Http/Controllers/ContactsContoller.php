@@ -12,6 +12,9 @@ class ContactsContoller extends Controller
             $contact=new Contact;
         }else{
             $contact=Contact::find($id);
+            if (!$contact) {
+                    return response()->json(['status' => 'error', 'message' => 'Contact not found'], 404);
+            }
         }
         $contact->name = $request->name;
         $contact->phone_number = $request->phone_number;
@@ -25,16 +28,22 @@ class ContactsContoller extends Controller
 
     function getContacts() {
         $contacts=Contact::get();
-        return request()->json(['status'=>'success','contacts'=>$contacts]);
+        return response()->json(['status'=>'success','contacts'=>$contacts]);
+    }
+    function getContactData($id) {
+        $contact=Contact::find($id);
+        if (!$contact) {
+                return response()->json(['status' => 'error', 'message' => 'Contact not found'], 404);
+        }
+        return response()->json(['status'=>'success','contact'=>$contact]);
     }
     function deleteContact($id){
         $contact=Contact::find($id);
         if(!$contact){
-        return request()->json(['status'=>'failed','meesage'=>'User not found']);
-            
+        return response()->json(['status'=>'failed','meesage'=>'User not found']); 
         }
         $contact->delete();
-        return request()->json(['status'=>'success']);
+        return response()->json(['status'=>'success']);
         
     }
 }

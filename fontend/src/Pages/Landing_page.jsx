@@ -9,7 +9,7 @@ function LandingPage() {
     <>
       <button
         onClick={() => {
-          navigate("/add");
+          navigate("/add/add");
         }}>
         Add New
       </button>

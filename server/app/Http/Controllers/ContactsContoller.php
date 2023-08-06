@@ -19,7 +19,8 @@ class ContactsContoller extends Controller
         $contact->city = $request->city;
         $contact->latitude = $request->latitude;
         $contact->longitude = $request->longitude;
-        return request()->json(['status'=>'success','contact'=>$contact]);
+        $contact->save();
+        return response()->json(['status' => 'success', 'contact' => $contact]);
     }
 
     function getContacts() {

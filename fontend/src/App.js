@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/add" element={<ContactForm />} />
+        <Route path="/add/:id" element={<ContactForm />} />
         <Route path="/map" element={<ContactsMap />} />
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./Pages/Landing_page";
-import ContactForm from "./component/ContactForm";
+import ContactForm from "./component/FormContact/ContactForm";
 import ContactsMap from "./component/ContactsMap";
 import Navbar from "./component/Navbar/navbar";
 

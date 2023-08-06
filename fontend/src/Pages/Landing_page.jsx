@@ -4,9 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
   const navigate = useNavigate();
-  // const navigateClick = () => {
-  //   navigate("/add");
-  // };
 
   return (
     <>

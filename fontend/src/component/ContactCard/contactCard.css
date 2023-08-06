@@ -1,0 +1,16 @@
+.card-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+.contact-card img {
+    border-radius: 50%;
+}

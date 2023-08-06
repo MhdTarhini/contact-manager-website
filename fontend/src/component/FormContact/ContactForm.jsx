@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./contactForm.css";
 
 function ContactForm() {
@@ -6,7 +7,9 @@ function ContactForm() {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  // useEffect(async () => {}, []);
+  useEffect(async () => {
+    await axios.post("");
+  }, []);
   return (
     <>
       <div className="form-container">

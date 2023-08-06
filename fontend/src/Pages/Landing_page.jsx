@@ -1,5 +1,5 @@
 import React from "react";
-import ContactCard from "../component/ContactCard";
+import ContactCard from "../component/ContactCard/ContactCard";
 import { useNavigate } from "react-router-dom";
 
 function LandingPage() {

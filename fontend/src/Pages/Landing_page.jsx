@@ -7,12 +7,6 @@ function LandingPage() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          navigate("/add/add");
-        }}>
-        Add New
-      </button>
       <ContactCard />
     </>
   );

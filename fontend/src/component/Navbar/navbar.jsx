@@ -32,7 +32,7 @@ function Navbar() {
           <div
             className="add-contact"
             onClick={() => {
-              navigate("/add");
+              navigate("/add/add");
             }}>
             New
           </div>

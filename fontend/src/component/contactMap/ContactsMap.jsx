@@ -17,15 +17,15 @@ function ContactMap() {
       console.error(error);
     }
   };
-  console.log(data);
   var markerIcon = new L.icon({
     iconUrl:
       "https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/home-circle-blue-512.png",
     iconSize: [38, 38],
   });
+
   useEffect(() => {
     getcontactdata();
-  }, []);
+  }, [data]);
   return (
     <MapContainer
       center={[33.86, 36.27]}

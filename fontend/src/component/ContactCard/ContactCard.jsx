@@ -12,7 +12,6 @@ function ContactCard() {
       const response = await axios.delete(
         `http://127.0.0.1:8000/api/delete_contact/${id}`
       );
-      console.log(response.data.contact);
     } catch (error) {
       console.error(error);
     }
@@ -36,13 +35,13 @@ function ContactCard() {
         {contact.map((ele) => {
           return (
             <div className="contact-card" key={ele.id}>
-              <img src="" alt="" srcset="" />
-              <div className="name">{ele.name}</div>
-              <div className="phone-number">{ele.phone_number}</div>
-              <div className="phone-number">{ele.country}</div>
-              <div className="phone-number">{ele.city}</div>
+              <div className="name">Name: {ele.name}</div>
+              <div className="phone-number">
+                Phone Number: {ele.phone_number}
+              </div>
+              <div className="phone-number">Country: {ele.country}</div>
+              <div className="phone-number">City: {ele.city}</div>
               <div className="buttons">
-
                 <button
                   className="edit"
                   onClick={() => {
@@ -51,7 +50,7 @@ function ContactCard() {
                   Edit
                 </button>
                 <button
-                  className="edit"
+                  className="delete"
                   onClick={() => {
                     deleteContact(ele.id);
                   }}>

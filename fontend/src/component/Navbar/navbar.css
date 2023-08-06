@@ -6,7 +6,9 @@
     color: white;
     font-weight: 700;
 }
-
+.logo {
+    cursor: pointer;
+}
 .right-nav {
     display: flex;
     gap: 20px;

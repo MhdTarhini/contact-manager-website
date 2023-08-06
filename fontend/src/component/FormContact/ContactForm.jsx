@@ -20,7 +20,7 @@ function ContactForm() {
         `http://127.0.0.1:8000/api/manage_contact/${path}`,
         data
       );
-      if (response.data.status == "success") {
+      if (response.data.status === "success") {
         navigate("/");
       }
     } catch (error) {

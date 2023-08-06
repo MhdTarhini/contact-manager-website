@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+}
+
+.right-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.right-nav div {
+    cursor: pointer;
+}

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('phone_number')->unique();
             $table->string('country');
             $table->string('city');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }

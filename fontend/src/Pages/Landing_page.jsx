@@ -1,7 +1,6 @@
 import React from "react";
 import ContactCard from "../component/ContactCard/ContactCard";
 import { useNavigate } from "react-router-dom";
-import ContactMap from "../component/ContactsMap";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -15,7 +14,6 @@ function LandingPage() {
         Add New
       </button>
       <ContactCard />
-      <ContactMap />
     </>
   );
 }

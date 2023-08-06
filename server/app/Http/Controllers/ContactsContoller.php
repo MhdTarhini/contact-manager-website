@@ -28,7 +28,7 @@ class ContactsContoller extends Controller
 
     function getContacts() {
         $contacts=Contact::get();
-        return response()->json(['status'=>'success','contacts'=>$contacts]);
+        return response()->json(['status'=>'success','contact'=>$contacts]);
     }
     function getContactData($id) {
         $contact=Contact::find($id);

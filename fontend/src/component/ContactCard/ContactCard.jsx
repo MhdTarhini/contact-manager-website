@@ -22,7 +22,7 @@ function ContactCard() {
       const response = await axios.get(
         "http://127.0.0.1:8000/api/all_contacts"
       );
-      setContact(response.data.contacts);
+      setContact(response.data.contact);
     } catch (error) {
       console.error(error);
     }
@@ -42,13 +42,7 @@ function ContactCard() {
               <div className="phone-number">{ele.country}</div>
               <div className="phone-number">{ele.city}</div>
               <div className="buttons">
-                <button
-                  className="map"
-                  onClick={() => {
-                    navigate(`/map/${ele.id}`);
-                  }}>
-                  Map
-                </button>
+
                 <button
                   className="edit"
                   onClick={() => {

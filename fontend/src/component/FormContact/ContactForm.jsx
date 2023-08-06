@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./contactForm.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function ContactForm() {
   const [data, setData] = useState([]);
-  const [contactData, setContactData] = useState([]);
   const [isSumbit, setIsSubmit] = useState("");
+  const navigate = useNavigate();
   const param = useParams();
   let path = "";
 
@@ -20,29 +20,20 @@ function ContactForm() {
         `http://127.0.0.1:8000/api/manage_contact/${path}`,
         data
       );
+      if (response.data.status == "success") {
+        navigate("/");
+      }
     } catch (error) {
       console.error(error);
     }
   };
-  const getcontactdata = async () => {
-    try {
-      const response = await axios.get(
-        `http://127.0.0.1:8000/api/get_contact/${path}`,
-        data
-      );
-      setContactData(response.data.contact);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
   if (param.id === "add") {
     path = "add";
   } else {
     path = `${param.id}`;
-    if (contactData.length == 0) {
-      getcontactdata();
-    }
   }
+
   useEffect(() => {
     addContact();
   }, [isSumbit]);
